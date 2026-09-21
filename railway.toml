@@ -1,0 +1,12 @@
+# railway.toml — Railway deployment configuration
+# Docs: https://docs.railway.app/reference/config-as-code
+
+[build]
+builder = "NIXPACKS"        # auto-detects Node.js, installs deps
+
+[deploy]
+startCommand = "npm start"
+healthcheckPath = "/health"
+healthcheckTimeout = 30     # seconds to wait for /health to return 200
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
